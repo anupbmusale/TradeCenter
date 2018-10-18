@@ -2,6 +2,7 @@ package net.jpmc.service;
 
 import static org.mockito.Mockito.when;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import net.jpmc.constant.CurrencyType;
@@ -30,7 +31,8 @@ public class TradeProcessorServiceUnitTest {
    @Test
    public void testProcessInstruction() {
 	   Mockito.doNothing().when(tradeCenterDao).createTrade(InstructionMock.getMockedInstruction());
-	   when(settlementDateService.getWorkingDay(new Date(), CurrencyType.USD)).thenReturn(new Date());
+	   LocalDate settlementDate = LocalDate.of(2018, 10, 18);
+	   when(settlementDateService.getWorkingDay(settlementDate, CurrencyType.USD)).thenReturn(settlementDate);
 	   tradeProcessorService.processInstruction(InstructionMock.getMockedInstruction());
    }
 }

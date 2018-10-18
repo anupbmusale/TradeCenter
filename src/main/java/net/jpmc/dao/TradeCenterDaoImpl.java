@@ -9,13 +9,13 @@ import net.jpmc.model.Instruction;
 public class TradeCenterDaoImpl implements TradeCenterDao {
 
 	/**
-	 * This method generate trade report for particular date
+	 * This method generate trade report
 	 * 
 	 * @param settlementDate
 	 * @return
 	 */
-	public List<Instruction> getInstructionsByDate(Date settlementDate) {
-		//TODO DB call to generate trade report for specific settlement date 
+	public List<Instruction> getInstructions() {
+		//TODO DB call to generate trade report
 	   return InstructionMock.getMockedInstruction();
 	}
 

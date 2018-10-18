@@ -3,6 +3,7 @@ package net.jpmc.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.time.LocalDate;
 import java.util.Date;
 
 import net.jpmc.constant.CurrencyType;
@@ -16,7 +17,7 @@ public class Instruction implements Serializable {
 	private BigDecimal agreedFx;
 	private CurrencyType currencyType;
 	private Date instructionDate;
-	private Date settlementDate;
+	private LocalDate settlementDate;
 	private BigInteger units;
 	private BigDecimal pricePerUnit;
 	
@@ -50,10 +51,10 @@ public class Instruction implements Serializable {
 	public void setInstructionDate(Date instructionDate) {
 		this.instructionDate = instructionDate;
 	}
-	public Date getSettlementDate() {
+	public LocalDate getSettlementDate() {
 		return settlementDate;
 	}
-	public void setSettlementDate(Date settlementDate) {
+	public void setSettlementDate(LocalDate settlementDate) {
 		this.settlementDate = settlementDate;
 	}
 	public BigInteger getUnits() {

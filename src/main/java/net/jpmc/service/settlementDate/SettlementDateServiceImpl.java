@@ -3,12 +3,15 @@ package net.jpmc.service.settlementDate;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.Date;
 
 import net.jpmc.constant.CurrencyType;
 import net.jpmc.constant.TradeCenterConstant;
-import net.jpmc.util.TradeCenterUtility;
 
+/**
+ * 
+ * This class get working day based on Currency type
+ *
+ */
 public class SettlementDateServiceImpl implements SettlementDateService {
 
 	/**
@@ -18,30 +21,27 @@ public class SettlementDateServiceImpl implements SettlementDateService {
 	 * @param currency
 	 * @return
 	 */
-	public Date getWorkingDay(Date settlementDate, CurrencyType currencyType) {
-		Date workingDay = null;
+	public LocalDate getWorkingDay(LocalDate settlementDate, CurrencyType currencyType) {
 		LocalDate nextWorkingDay = null;
 		try {
-			LocalDate localSettlementDate = TradeCenterUtility
-					.convertDateToLocalDate(settlementDate);
 
-			if (isWorkingDay(localSettlementDate, currencyType.getCode())) {
+			if (isWorkingDay(settlementDate, currencyType.getCode())) {
 				return settlementDate;
 			}
 
 			if (isOddCurrency(currencyType.getCode())) {
 				nextWorkingDay = getNextWorkingDay(DayOfWeek.FRIDAY,
-						DayOfWeek.SATURDAY, localSettlementDate);
+						DayOfWeek.SATURDAY, settlementDate);
 			} else {
 				nextWorkingDay = getNextWorkingDay(DayOfWeek.SATURDAY,
-						DayOfWeek.SUNDAY, localSettlementDate);
+						DayOfWeek.SUNDAY, settlementDate);
 			}
 
-			return TradeCenterUtility.convertLocalDateToDate(nextWorkingDay);
+			return nextWorkingDay;
 		} catch (Exception ex) {
 			System.out.println("Exception while calculating working day");
 		}
-		return workingDay;
+		return nextWorkingDay;
 	}
 
 	/**

@@ -26,10 +26,10 @@ public class TradeReportServiceImpl implements TradeReportService {
 	 * @param settlementDate
 	 * @return
 	 */
-	public Map<InstructionType, List<TradeReport>> generateTradeReport(Date settlementDate) {
+	public Map<InstructionType, List<TradeReport>> generateTradeReport() {
 		Map<InstructionType, List<TradeReport>> tradeReport = null;
 		try {
-			List<Instruction> instructions = tradeCenterDao.getInstructionsByDate(settlementDate);
+			List<Instruction> instructions = tradeCenterDao.getInstructions();
 			tradeReport = TradeReportHelper.generateTradeReport(instructions);
 		} catch (Exception e) {
 			System.out.println("Exception while generating report");

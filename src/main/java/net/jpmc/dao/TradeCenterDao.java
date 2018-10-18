@@ -1,18 +1,17 @@
 package net.jpmc.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import net.jpmc.model.Instruction;
 
 public interface TradeCenterDao {
 	/**
-	 * This method generate trade report for particular date
+	 * This method generate trade report
 	 * 
 	 * @param settlementDate
 	 * @return
 	 */
-	public List<Instruction> getInstructionsByDate(Date settlementDate);
+	public List<Instruction> getInstructions();
 	
 	/**
 	 * This method generate trade report for date range

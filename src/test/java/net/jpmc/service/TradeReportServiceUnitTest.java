@@ -38,9 +38,9 @@ public class TradeReportServiceUnitTest {
 	 */
 	@Test
 	public void testGenerateTradeReportForSell() {
-		when(tradeCenterDao.getInstructionsByDate(new Date(2018, 10, 18))).thenReturn(
+		when(tradeCenterDao.getInstructions()).thenReturn(
 				InstructionMock.getMockedInstruction());
-		Map<InstructionType, List<TradeReport>> tradeReportByInstructionType = tradeCenterService.generateTradeReport(new Date(2018, 10, 18));
+		Map<InstructionType, List<TradeReport>> tradeReportByInstructionType = tradeCenterService.generateTradeReport();
 
 		for (Entry<InstructionType, List<TradeReport>> entry : tradeReportByInstructionType
 				.entrySet()) {
@@ -53,7 +53,7 @@ public class TradeReportServiceUnitTest {
 				}
 			}
 		}
-		verify(tradeCenterDao).getInstructionsByDate(new Date(2018, 10, 18));
+		verify(tradeCenterDao).getInstructions();
 	}
 	
 	/**
@@ -61,9 +61,9 @@ public class TradeReportServiceUnitTest {
 	 */
 	@Test
 	public void testGenerateTradeReportForBuy() {
-		when(tradeCenterDao.getInstructionsByDate(new Date(2018, 10, 18))).thenReturn(
+		when(tradeCenterDao.getInstructions()).thenReturn(
 				InstructionMock.getMockedInstruction());
-		Map<InstructionType, List<TradeReport>> tradeReportByInstructionType = tradeCenterService.generateTradeReport(new Date(2018, 10, 18));
+		Map<InstructionType, List<TradeReport>> tradeReportByInstructionType = tradeCenterService.generateTradeReport();
 
 		for (Entry<InstructionType, List<TradeReport>> entry : tradeReportByInstructionType
 				.entrySet()) {
@@ -76,7 +76,7 @@ public class TradeReportServiceUnitTest {
 				}
 			}
 		}
-		verify(tradeCenterDao).getInstructionsByDate(new Date(2018, 10, 18));
+		verify(tradeCenterDao).getInstructions();
 	}
 
 }

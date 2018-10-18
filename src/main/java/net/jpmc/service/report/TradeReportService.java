@@ -10,11 +10,11 @@ import net.jpmc.model.TradeReport;
 public interface TradeReportService {
 	
 	/**
-	 * This method generate trade report on date in descending order of amount 
+	 * This method generate trade report in descending order of amount 
 	 * 
 	 * @param settlementDate
 	 * @return
 	 */
-	public Map<InstructionType, List<TradeReport>> generateTradeReport(Date settlementDate);
+	public Map<InstructionType, List<TradeReport>> generateTradeReport();
 	
 }
