@@ -33,19 +33,6 @@ public class MainApplication {
 			System.out.println("Entity: " + report.getEntity() + ", " + "InstructionType: " + report.getInstructionType().getCode() 
 					+ ", " + "Amount: " + report.getAmount());
 		});
-		
-				/*
-				 * Report of instruction type: S
-		Entity: JPMC, InstructionType: S, Amount: 1856380.59
-		Entity: STERLITE, InstructionType: S, Amount: 514970.40
-		Entity: MPHASIS, InstructionType: S, Amount: 228048.48
-		Report of instruction type: B
-		Entity: MPHASIS, InstructionType: B, Amount: 5282877.60
-		Entity: STERLITE, InstructionType: B, Amount: 5110970.82
-		Entity: HDFC, InstructionType: B, Amount: 31047.67
-		Entity: JPMC, InstructionType: B, Amount: 5235.84
-		 */
-		
 	}
 }
 
