@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -21,7 +22,7 @@ public class TradeReportHelper {
 	 * @param trades
 	 */
 	public static Map<InstructionType, List<TradeReport>> generateTradeReport(List<Instruction> instructions) {
-		Map<InstructionType, List<TradeReport>> tradeReportByInstructionType = new HashMap<>();
+		Map<InstructionType, List<TradeReport>> tradeReportByInstructionType = new LinkedHashMap<>();
 		List<TradeReport> tradeReport = null;
 		if (instructions != null && instructions.size() > 0) {
 			tradeReport = createReport(instructions);

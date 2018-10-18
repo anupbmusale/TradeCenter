@@ -14,7 +14,7 @@ import net.jpmc.service.report.TradeReportServiceImpl;
 public class MainApplication {
 	public static void main(String []args) {
 		TradeReportService  tradeCenterService = new TradeReportServiceImpl(new TradeCenterDaoImpl());
-		Map<InstructionType, List<TradeReport>> tradeReportByInstructionType = tradeCenterService.generateTradeReport(new Date());
+		Map<InstructionType, List<TradeReport>> tradeReportByInstructionType = tradeCenterService.generateTradeReport(new Date(2018, 10, 18));
 		for (Entry<InstructionType, List<TradeReport>> entry : tradeReportByInstructionType.entrySet()) {
 			displayReport(entry.getKey(), (List<TradeReport>)entry.getValue());
 		}		
